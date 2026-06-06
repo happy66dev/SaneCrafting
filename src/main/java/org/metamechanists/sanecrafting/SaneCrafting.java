@@ -4,7 +4,6 @@ import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.config.Config;
 import lombok.Getter;
 import lombok.NonNull;
-import net.guizhanss.guizhanlibplugin.updater.GuizhanUpdater;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -33,10 +32,6 @@ public final class SaneCrafting extends JavaPlugin implements SlimefunAddon {
             getLogger().log(Level.SEVERE, "从此处下载: https://50L.cc/gzlib");
             getServer().getPluginManager().disablePlugin(this);
             return;
-        }
-
-        if (config.getBoolean("auto-update") && getPluginVersion().startsWith("Build")) {
-            GuizhanUpdater.start(this, getFile(), "SlimefunGuguProject", "SaneCrafting", "master");
         }
 
         new Metrics(this, BSTATS_ID);
